@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const inventoryApi = require("./src/controllers/inventory_controller");
 
 dotenv.config();
 const app = express();
@@ -29,10 +30,6 @@ mongoose.connection.once("open", () => {
   console.log("Database Synced");
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Server is Up and Running on PORT ` + PORT);
-// });
-
 app.listen(PORT, () => {
   console.log(`server started at http://localhost:${PORT}`);
 });
@@ -40,3 +37,5 @@ app.listen(PORT, () => {
 app.route("/").get((req, res) => {
   res.send("Inventory Management Application Backend");
 });
+
+app.use("/inventory", inventoryApi());
