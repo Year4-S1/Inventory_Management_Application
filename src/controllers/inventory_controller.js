@@ -8,6 +8,7 @@ module.exports = function () {
   router.get("/view/supplier/:id", service.viewInventoryBySupplierId);
   router.get("/view/:id", service.viewInventoryById);
   router.put("/update/:id", service.updateInventory);
+  router.delete("/delete/:id", service.deleteInventory);
 
   return router;
 };
