@@ -8,7 +8,7 @@ spec:
       app: inventory-management
   replicas: 2
   strategy:
-    type: inventory-management
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 0
       maxUnavailable: 1
