@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: inventory-management
-          image: ashini98/inventory-management-application:ac65fb0da492f6a8b56aacfcf2b4f1f39d33ef41
+          image: ashini98/inventory-management-application:{{tag}}
           ports:
             - containerPort: 8080
