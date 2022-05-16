@@ -4,6 +4,7 @@ const router = express.Router();
 const service = require("../services/inventory_service");
 
 module.exports = function () {
+  router.get("/", service.getItems);
   router.post("/create", service.createInventory);
   router.get("/view/supplier/:id", service.viewInventoryBySupplierId);
   router.get("/view/:id", service.viewInventoryById);

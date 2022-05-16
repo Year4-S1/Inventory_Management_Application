@@ -44,6 +44,18 @@ const viewInventoryById = async (req, res) => {
   }
 };
 
+const getItems = async (req, res) => {
+  await Inventory.find({})
+    .then((data) => {
+      res.status(200).send({ data: data });
+      LOG.info(enums.inventory.VIEW_SUCCESS);
+    })
+    .catch((error) => {
+      res.status(500).send({ error: error.message });
+      LOG.info(enums.inventory.VIEW_UNSUCCESS);
+    });
+};
+
 const updateInventory = async (req, res) => {
   if (!req.is("application/json")) {
     res.send(400);
@@ -96,4 +108,5 @@ module.exports = {
   viewInventoryById,
   updateInventory,
   deleteInventory,
+  getItems,
 };
